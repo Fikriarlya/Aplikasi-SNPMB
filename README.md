@@ -1,2 +1,2 @@
 # Aplikasi-SNPMB
-Project UAS, membuat aplikasi SNPMB dasar dengan fungsi CRUD, dll.
+Project UAS, membuat aplikasi SNPMB dasar menggunakan bahasa C dengan fungsi CRUD, dll.
