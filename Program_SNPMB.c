@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+#include <windows.h>
 
 // File database
 const char* DATABASE = "database_snpmb.txt";
@@ -20,10 +21,12 @@ typedef struct {
 // --- FUNGSI UTILITAS (HELPER) ---
 
 // Clear tampilan
-void bersihkan_tampilan() {
+void bersihkan_tampilan(int detik) {
     #ifdef _WIN32
+        Sleep(detik * 2000);
         system("cls");
     #else
+        sleep(detik);
         system("clear");
     #endif
 }
@@ -205,7 +208,10 @@ void tambah_data() {
     fclose(fp);
     
     printf("\n>> Data tersimpan dengan ID: %d\n", id_baru);
-    bersihkan_tampilan();
+    printf("\nTekan Enter untuk kembali...");
+    getchar();
+    printf("\nLayar akan dibersihkan dalam 2 detik...\n");
+    bersihkan_tampilan(2);
 }
 
 // CASE 2 - Lihat data siswa + sorting
@@ -279,7 +285,8 @@ void lihat_data() {
     printf("\nTotal: %d siswa\n", jumlah_data);
     printf("\nTekan Enter untuk keluar...");
     getchar();
-    bersihkan_tampilan();
+    printf("\nLayar akan dibersihkan dalam 2 detik...\n");
+    bersihkan_tampilan(2);
 }
 
 // CASE 3 - Cari data berdasarkan nama siswa
@@ -316,7 +323,8 @@ void cari_data() {
     
     printf("\nTekan Enter untuk keluar...");
     getchar();
-    bersihkan_tampilan();
+    printf("\nLayar akan dibersihkan dalam 2 detik...\n");
+    bersihkan_tampilan(2);
 }
 
 // CASE 4 - Edit data siswa
@@ -367,7 +375,10 @@ void edit_data() {
         remove(DATABASE_TEMP);
         printf("\n>> ID tidak ditemukan.\n");
     }
-    bersihkan_tampilan();
+    printf("\nTekan Enter untuk kembali...");
+    getchar();
+    printf("\nLayar akan dibersihkan dalam 2 detik...\n");
+    bersihkan_tampilan(2);
 }
 
 // CASE 5 - Hapus data siswa
@@ -413,9 +424,13 @@ void hapus_data() {
         remove(DATABASE_TEMP);
         printf(">> ID tidak ditemukan.\n");
     }
-    bersihkan_tampilan();
+    printf("\nTekan Enter untuk kembali...");
+    getchar();
+    printf("\nLayar akan dibersihkan dalam 2 detik...\n");
+    bersihkan_tampilan(2);
 }
 
+// Fungsi utama
 int main() {
     int pilihan;
 
